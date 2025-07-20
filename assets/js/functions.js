@@ -1,3 +1,23 @@
+function injectSiteName() {
+    const siteName = "Heal  Well"; // ✅ Your website name
+
+    // Update footer site name
+    const siteNameEl = document.getElementById("site-name");
+    if (siteNameEl) siteNameEl.textContent = siteName;
+
+    // Update all spans with name="appName"
+    document.querySelectorAll('[name="appName"]').forEach(el => {
+        el.textContent = siteName;
+    });
+
+    // Optional: also support spans with class "app-name"
+    document.querySelectorAll('.app-name').forEach(el => {
+        el.textContent = siteName;
+    });
+}
+
+
+
 // 🔢 Dynamic contact data
 const contact = {
     addressLine1: "23, Gagan Vihar, (Basement)",
@@ -12,7 +32,7 @@ const contact = {
 };
 
 // 🌐 Social media links
-const socialLinks = [
+const functions = [
     { platform: "twitter", url: "https://x.com/HealWellBharat", icon: "bi-twitter-x" },
     { platform: "facebook", url: "https://x.com/HealWellBharat", icon: "bi-facebook" },
     { platform: "instagram", url: "https://www.instagram.com/healwell.in/", icon: "bi-instagram" },
@@ -57,7 +77,7 @@ function injectHeaderContent() {
     // 🌐 Social links (in topbar)
     const socialContainer = document.getElementById("social-links");
     if (socialContainer) {
-        socialLinks.forEach(link => {
+        functions.forEach(link => {
             const a = document.createElement("a");
             a.href = link.url;
             a.className = link.platform + " ms-2";
@@ -91,7 +111,7 @@ function injectFooterContent() {
     // 🌐 Inject footer social links
     const footerSocial = document.getElementById("footer-social-links");
     if (footerSocial) {
-        socialLinks.forEach(link => {
+        functions.forEach(link => {
             const a = document.createElement("a");
             a.href = link.url;
             a.className = "me-3"; // space between icons
@@ -125,4 +145,43 @@ function injectLogo() {
         logoLink.appendChild(logoImg);
         logoContainer.appendChild(logoLink);
     }
+}
+
+function highlightServicesOnSubpages() {
+    const path = window.location.pathname;
+
+    const servicePages = [
+        'nursing.html',
+        'physiotherapy.html',
+        'doctor.html',
+        'pathology.html',
+        'diagnostics.html',
+        'vaccination.html',
+        'caretaker.html',
+        'elderly-care.html'
+        // Add more service pages here if needed
+    ];
+
+    const isServicePage = servicePages.some(page =>
+        path.endsWith('/' + page) || path.endsWith(page)
+    );
+
+    if (isServicePage) {
+        const servicesTab = document.getElementById('services-tab');
+        if (servicesTab) {
+            servicesTab.classList.add('active');
+
+            // ✅ Optional: auto-expand dropdown menu
+            const dropdownMenu = servicesTab.querySelector('ul');
+            if (dropdownMenu) dropdownMenu.classList.add('dropdown-active');
+        }
+    }
+}
+
+
+function applyVisibilityRules() {
+    const allServices = document.querySelectorAll(".service-item");
+    allServices.forEach((item, index) => {
+        item.style.display = index < 8 ? "block" : "none";
+    });
 }

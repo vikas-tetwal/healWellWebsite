@@ -1,31 +1,4 @@
-
- /**
-   * This is for service visibility true or false
-   */
-
-function applyVisibilityRules() {
-  const allServices = document.querySelectorAll(".service-item");
-  allServices.forEach((item, index) => {
-    item.style.display = index < 8 ? "block" : "none";
-  });
-}
-
- /**
-   * call this function in the browser to show and hide other services
-   */
-
-function setServiceVisibility(index, show) {
-  const items = document.querySelectorAll('.col-lg-3');
-  if (items[index]) {
-    items[index].style.display = show ? "block" : "none";
-    items[index].setAttribute("data-visible", show ? "true" : "false");
-  }
-}
-
- /**
-   */
-
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
      const includeElements = document.querySelectorAll('[data-include]');
      let loadedCount = 0;
 
@@ -44,11 +17,14 @@ function setServiceVisibility(index, show) {
                  console.log(`✅ Loaded: ${file}`);
 
                  if (loadedCount === includeElements.length) {
-                     console.log("✅ All includes loaded");
+                     console.log("✅ All includes loading ...");
+                     injectSiteName();
                      applyVisibilityRules?.();
                      injectLogo?.();
                      injectHeaderContent?.();
                      injectFooterContent?.();
+                     highlightServicesOnSubpages?.();
+                     console.log("✅ All includes loaded");
                  }
              })
              .catch(err => {
