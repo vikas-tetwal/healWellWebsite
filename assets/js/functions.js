@@ -16,70 +16,83 @@ function injectSiteName() {
     });
 }
 
+// 🔢 Dynamic service starts
+const services = [
+    {
+        name: "Nursing",
+        description: "HealWell brings professional hospital-grade nursing care directly to your home...",
+        icon: "fas fa-heartbeat",
+        link: "nursing.html",
+        delay: 100
+    },
+    {
+        name: "Physiotherapy",
+        description: "HealWell provides expert physiotherapy at home...",
+        icon: "fas fa-pills",
+        link: "physiotherapy.html",
+        delay: 200
+    },
+    {
+        name: "Doctor Visit",
+        description: "HealWell provides convenient medical care at home through doctor visits or online options...",
+        icon: "fas fa-hospital-user",
+        link: "doctor.html",
+        delay: 300
+    },
+    {
+        name: "Pathology",
+        description: "Home sample collection for lab tests (blood, urine, etc.)...",
+        icon: "fas fa-dna",
+        link: "pathology.html",
+        delay: 400
+    },
+    {
+        name: "Diagnostic Services",
+        description: "Monitor your heart and brain health at home with ECG and EEG services...",
+        icon: "fas fa-wheelchair",
+        link: "diagnostics.html",
+        delay: 500
+    },
+    {
+        name: "Vaccination@Home",
+        description: "Vaccination services for adults and infants, delivered at your doorstep...",
+        icon: "fas fa-notes-medical",
+        link: "vaccination.html",
+        delay: 600
+    },
+    {
+        name: "Caretaker at Home",
+        description: "Trained attendants to assist with daily needs and basic medical care at home...",
+        icon: "fas fa-user-nurse",
+        link: "caretaker.html",
+        delay: 600
+    },
+    {
+        name: "Elderly Care",
+        description: "Compassionate elder care solutions at home for wellness and support...",
+        icon: "fas fa-user-shield",
+        link: "elderly-care.html",
+        delay: 600
+    }
+];
+
 function injectServices() {
-    const services = [
-        {
-            name: "Nursing",
-            description: "HealWell brings professional hospital-grade nursing care directly to your home, allowing patients to receive essential medical procedures in a familiar and comfortable setting.",
-            icon: "fas fa-heartbeat",
-            link: "nursing.html",
-            delay: 100
-        },
-        {
-            name: "Physiotherapy",
-            description: "HealWell provides expert physiotherapy at home, offering personalized care to relieve pain, improve mobility, and aid recovery—all in the comfort and privacy of your space.",
-            icon: "fas fa-pills",
-            link: "physiotherapy.html",
-            delay: 200
-        },
-        {
-            name: "Doctor Visit / Virtual Consultation",
-            description: "HealWell provides convenient medical care at home through both doctor visits and virtual consultations, offering expert support for routine check-ups or urgent needs via in-person or online options.",
-            icon: "fas fa-hospital-user",
-            link: "doctor.html",
-            delay: 300
-        },
-        {
-            name: "Pathology",
-            description: "HealWell offers the convenience of home sample collection for lab tests, including blood and urine, allowing patients to access diagnostic services without visiting a lab.",
-            icon: "fas fa-dna",
-            link: "pathology.html",
-            delay: 400
-        },
-        {
-            name: "Diagnostic Services",
-            description: "HealWell enables you to monitor your heart and brain health conveniently at home through their ECG and EEG services.",
-            icon: "fas fa-wheelchair",
-            link: "diagnostics.html",
-            delay: 500
-        },
-        {
-            name: "Vaccination@Home",
-            description: "We provide at-home vaccination services for adults and infants, delivering essential immunizations in the safety of your home.",
-            icon: "fas fa-notes-medical",
-            link: "vaccination.html",
-            delay: 600
-        },
-        {
-            name: "Caretaker/Attendant at Home",
-            description: "HealWell provides trained healthcare attendants to support daily activities and basic medical needs at home.",
-            icon: "fas fa-user-nurse",
-            link: "caretaker.html",
-            delay: 600
-        },
-        {
-            name: "Elderly Care",
-            description: "HealWell provides personalized elder care at home to ensure comfort, medical support, and companionship.",
-            icon: "fas fa-user-shield",
-            link: "elderly-care.html",
-            delay: 600
+    const servicesContainer = document.getElementById("services-list");     // For homepage cards
+    const menuContainer = document.getElementById("services-menu");         // For nav dropdown
+
+    services.forEach(service => {
+        // ✅ Inject into Services Dropdown Menu (if exists)
+        if (menuContainer) {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = service.link;
+            a.textContent = service.name;
+            li.appendChild(a);
+            menuContainer.appendChild(li);
         }
-    ];
 
-    const container = document.getElementById("services-list");
-
-    if (container) {
-        services.forEach(service => {
+        // ✅ Inject into Services Cards on Homepage (if exists)
+        if (servicesContainer) {
             const col = document.createElement("div");
             col.className = "col-lg-3 col-md-6";
             col.setAttribute("data-aos", "fade-up");
@@ -88,20 +101,20 @@ function injectServices() {
 
             col.innerHTML = `
         <div class="service-item position-relative">
-          <div class="icon">
-            <i class="${service.icon}"></i>
-          </div>
+          <div class="icon"><i class="${service.icon}"></i></div>
           <a href="${service.link}" class="stretched-link">
             <h3>${service.name}</h3>
           </a>
           <p>${service.description}</p>
         </div>
       `;
-
-            container.appendChild(col);
-        });
-    }
+            servicesContainer.appendChild(col);
+        }
+    });
 }
+
+// 🔢 Dynamic service ends
+
 
 
 // 🔢 Dynamic contact data

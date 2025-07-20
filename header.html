@@ -32,18 +32,21 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#about">About</a></li>
+
+                    <!-- ✅ Add an ID to the dropdown and a container <ul> -->
+                    <!-- In your header.html nav -->
                     <li class="dropdown" id="services-tab">
                         <a href="#"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li><a href="nursing.html">Nursing</a></li>
-                            <li><a href="physiotherapy.html">Physiotherapy</a></li>
-                            <li><a href="doctor.html">Doctor Visit</a></li>
-                            <!-- Add other service links here -->
+                        <ul id="services-menu">
+                            <!-- Menu options will be injected here -->
                         </ul>
                     </li>
+
+
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+
 
             <a class="cta-btn d-none d-sm-block" href="#appointment">Make an Appointment</a>
 
