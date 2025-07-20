@@ -116,7 +116,6 @@ function injectServices() {
 // 🔢 Dynamic service ends
 
 
-
 // 🔢 Dynamic contact data
 const contact = {
     addressLine1: "23, Gagan Vihar, (Basement)",
@@ -132,10 +131,10 @@ const contact = {
 
 // 🌐 Social media links
 const functions = [
-    { platform: "twitter", url: "https://x.com/HealWellBharat", icon: "bi-twitter-x" },
-    { platform: "facebook", url: "https://x.com/HealWellBharat", icon: "bi-facebook" },
-    { platform: "instagram", url: "https://www.instagram.com/healwell.in/", icon: "bi-instagram" },
-    { platform: "linkedin", url: "https://www.linkedin.com/company/healwellbharat/", icon: "bi-linkedin" }
+    {platform: "twitter", url: "https://x.com/HealWellBharat", icon: "bi-twitter-x"},
+    {platform: "facebook", url: "https://x.com/HealWellBharat", icon: "bi-facebook"},
+    {platform: "instagram", url: "https://www.instagram.com/healwell.in/", icon: "bi-instagram"},
+    {platform: "linkedin", url: "https://www.linkedin.com/company/healwellbharat/", icon: "bi-linkedin"}
 ];
 
 function injectHeaderContent() {

@@ -1,39 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
-     const includeElements = document.querySelectorAll('[data-include]');
-     let loadedCount = 0;
+    const includeElements = document.querySelectorAll('[data-include]');
+    let loadedCount = 0;
 
-     includeElements.forEach(el => {
-         const file = el.getAttribute("data-include");
+    includeElements.forEach(el => {
+        const file = el.getAttribute("data-include");
 
-         fetch(file)
-             .then(response => {
-                 if (!response.ok) throw new Error(`Could not load ${file}`);
-                 return response.text();
-             })
-             .then(data => {
-                 el.innerHTML = data;
-                 loadedCount++;
+        fetch(file)
+            .then(response => {
+                if (!response.ok) throw new Error(`Could not load ${file}`);
+                return response.text();
+            })
+            .then(data => {
+                el.innerHTML = data;
+                loadedCount++;
 
-                 console.log(`✅ Loaded: ${file}`);
+                console.log(`✅ Loaded: ${file}`);
 
-                 if (loadedCount === includeElements.length) {
-                     console.log("✅ All includes loading ...");
-                     injectSiteName();
-                     injectServices();
-                     applyVisibilityRules?.();
-                     injectLogo?.();
-                     injectHeaderContent?.();
-                     injectFooterContent?.();
-                     //highlightServicesOnSubpages?.();
-                     console.log("✅ All includes loaded");
-                 }
-             })
-             .catch(err => {
-                 console.error(`❌ Failed to load ${file}`, err);
-                 el.innerHTML = `<p>Error loading ${file}</p>`;
-             });
-     });
- });
+                if (loadedCount === includeElements.length) {
+                    console.log("✅ All includes loading ...");
+                    injectSiteName();
+                    injectServices();
+                    applyVisibilityRules?.();
+                    injectLogo?.();
+                    injectHeaderContent?.();
+                    injectFooterContent?.();
+                    //highlightServicesOnSubpages?.();
+                    console.log("✅ All includes loaded");
+                }
+            })
+            .catch(err => {
+                console.error(`❌ Failed to load ${file}`, err);
+                el.innerHTML = `<p>Error loading ${file}</p>`;
+            });
+    });
+});
 
 
 
