@@ -36,7 +36,7 @@ const services = [
         name: "Doctor Visit",
         description: "HealWell provides convenient medical care at home through doctor visits or online options...",
         icon: "fas fa-hospital-user",
-        link: "doctor.html",
+        link: "doctor-visit.html",
         delay: 300
     },
     {
