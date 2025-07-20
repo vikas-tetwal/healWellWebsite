@@ -25,28 +25,41 @@ function setServiceVisibility(index, show) {
  /**
    */
 
-document.addEventListener("DOMContentLoaded", () => {
-  const includeElements = document.querySelectorAll('[data-include]');
-  let loadedCount = 0;
+ document.addEventListener("DOMContentLoaded", () => {
+     const includeElements = document.querySelectorAll('[data-include]');
+     let loadedCount = 0;
 
-  includeElements.forEach(el => {
-    const file = el.getAttribute("data-include");
-    fetch(file)
-      .then(response => {
-        if (!response.ok) throw new Error(`Could not load ${file}`);
-        return response.text();
-      })
-      .then(data => {
-        el.innerHTML = data;
-        loadedCount++;
+     includeElements.forEach(el => {
+         const file = el.getAttribute("data-include");
 
-        if (loadedCount === includeElements.length) {
-          applyVisibilityRules(); // Call visibility logic after all includes load
-        }
-      })
-      .catch(err => {
-        console.error(err);
-        el.innerHTML = `<p>Error loading ${file}</p>`;
-      });
-  });
-});
+         fetch(file)
+             .then(response => {
+                 if (!response.ok) throw new Error(`Could not load ${file}`);
+                 return response.text();
+             })
+             .then(data => {
+                 el.innerHTML = data;
+                 loadedCount++;
+
+                 console.log(`✅ Loaded: ${file}`);
+
+                 if (loadedCount === includeElements.length) {
+                     console.log("✅ All includes loaded");
+                     applyVisibilityRules?.();
+                     injectLogo?.();
+                     injectHeaderContent?.();
+                     injectFooterContent?.();
+                 }
+             })
+             .catch(err => {
+                 console.error(`❌ Failed to load ${file}`, err);
+                 el.innerHTML = `<p>Error loading ${file}</p>`;
+             });
+     });
+ });
+
+
+
+
+
+
