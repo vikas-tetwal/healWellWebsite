@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.log("✅ All includes loading ...");
                     injectSiteName();
                     injectServices();
+                    injectFooterServices();
                     applyVisibilityRules?.();
                     injectLogo?.();
                     injectHeaderContent?.();

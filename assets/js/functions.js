@@ -113,6 +113,48 @@ function injectServices() {
     });
 }
 
+function injectFooterServices() {
+    const services = [
+        { name: "Nursing", link: "nursing.html" },
+        { name: "Physiotherapy", link: "physiotherapy.html" },
+        { name: "Doctor Visit", link: "doctor.html" },
+        { name: "Pathology", link: "pathology.html" },
+        { name: "Diagnostic Services", link: "diagnostics.html" },
+        { name: "Vaccination@Home", link: "vaccination.html" },
+        { name: "Caretaker at Home", link: "caretaker.html" },
+        { name: "Elderly Care", link: "elderly-care.html" }
+    ];
+
+    const colLen = Math.ceil(services.length / 2);
+    const col1 = services.slice(0, colLen);
+    const col2 = services.slice(colLen);
+
+    const row = document.getElementById("footer-services-row");
+    if (!row) return;
+    row.innerHTML = '';
+
+    [col1, col2].forEach((col, idx) => {
+        const colDiv = document.createElement("div");
+        colDiv.className = "col-6"; // For 2 columns side by side
+        const ul = document.createElement("ul");
+        ul.className = "list-unstyled mb-0";
+        col.forEach(service => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = service.link;
+            a.textContent = service.name;
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+        colDiv.appendChild(ul);
+        row.appendChild(colDiv);
+    });
+}
+
+
+
+
+
 // 🔢 Dynamic service ends
 
 

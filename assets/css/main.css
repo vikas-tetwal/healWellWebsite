@@ -721,6 +721,15 @@ h6 {
     font-size: 13px;
 }
 
+#footer-services-row ul {
+    padding: 0;
+}
+#footer-services-row li {
+    margin-bottom: 8px;
+}
+
+
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
