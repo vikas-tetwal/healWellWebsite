@@ -1,5 +1,5 @@
 function injectSiteName() {
-    const siteName = "Heal  Well"; // ✅ Your website name
+    const siteName = "HealWell";
 
     // Update footer site name
     const siteNameEl = document.getElementById("site-name");
@@ -151,9 +151,24 @@ function injectFooterServices() {
     });
 }
 
-
-
-
+function injectVariables() {
+    const locationEl = document.getElementById("addressLine1");
+    if (locationEl) {
+        locationEl.textContent = contact.addressLine1;
+    }
+    const locationEl2 = document.getElementById("addressLine2");
+    if (locationEl2) {
+        locationEl2.textContent = contact.addressLine2;
+    }
+    const phoneNumber = document.getElementById("phonenumber");
+    if (phoneNumber) {
+        phoneNumber.textContent = contact.phone.display;
+    }
+    const emailAdd = document.getElementById("emailAd");
+    if (emailAdd) {
+        emailAdd.textContent = contact.email;
+    }
+}
 
 // 🔢 Dynamic service ends
 
@@ -286,38 +301,6 @@ function injectLogo() {
         logoContainer.appendChild(logoLink);
     }
 }
-
-function highlightServicesOnSubpages() {
-    const path = window.location.pathname;
-
-    const servicePages = [
-        'nursing.html',
-        'physiotherapy.html',
-        'doctor.html',
-        'pathology.html',
-        'diagnostics.html',
-        'vaccination.html',
-        'caretaker.html',
-        'elderly-care.html'
-        // Add more service pages here if needed
-    ];
-
-    const isServicePage = servicePages.some(page =>
-        path.endsWith('/' + page) || path.endsWith(page)
-    );
-
-    if (isServicePage) {
-        const servicesTab = document.getElementById('services-tab');
-        if (servicesTab) {
-            servicesTab.classList.add('active');
-
-            // ✅ Optional: auto-expand dropdown menu
-            const dropdownMenu = servicesTab.querySelector('ul');
-            if (dropdownMenu) dropdownMenu.classList.add('dropdown-active');
-        }
-    }
-}
-
 
 function applyVisibilityRules() {
     const allServices = document.querySelectorAll(".service-item");
