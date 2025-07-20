@@ -16,6 +16,92 @@ function injectSiteName() {
     });
 }
 
+function injectServices() {
+    const services = [
+        {
+            name: "Nursing",
+            description: "HealWell brings professional hospital-grade nursing care directly to your home, allowing patients to receive essential medical procedures in a familiar and comfortable setting.",
+            icon: "fas fa-heartbeat",
+            link: "nursing.html",
+            delay: 100
+        },
+        {
+            name: "Physiotherapy",
+            description: "HealWell provides expert physiotherapy at home, offering personalized care to relieve pain, improve mobility, and aid recovery—all in the comfort and privacy of your space.",
+            icon: "fas fa-pills",
+            link: "physiotherapy.html",
+            delay: 200
+        },
+        {
+            name: "Doctor Visit / Virtual Consultation",
+            description: "HealWell provides convenient medical care at home through both doctor visits and virtual consultations, offering expert support for routine check-ups or urgent needs via in-person or online options.",
+            icon: "fas fa-hospital-user",
+            link: "doctor.html",
+            delay: 300
+        },
+        {
+            name: "Pathology",
+            description: "HealWell offers the convenience of home sample collection for lab tests, including blood and urine, allowing patients to access diagnostic services without visiting a lab.",
+            icon: "fas fa-dna",
+            link: "pathology.html",
+            delay: 400
+        },
+        {
+            name: "Diagnostic Services",
+            description: "HealWell enables you to monitor your heart and brain health conveniently at home through their ECG and EEG services.",
+            icon: "fas fa-wheelchair",
+            link: "diagnostics.html",
+            delay: 500
+        },
+        {
+            name: "Vaccination@Home",
+            description: "We provide at-home vaccination services for adults and infants, delivering essential immunizations in the safety of your home.",
+            icon: "fas fa-notes-medical",
+            link: "vaccination.html",
+            delay: 600
+        },
+        {
+            name: "Caretaker/Attendant at Home",
+            description: "HealWell provides trained healthcare attendants to support daily activities and basic medical needs at home.",
+            icon: "fas fa-user-nurse",
+            link: "caretaker.html",
+            delay: 600
+        },
+        {
+            name: "Elderly Care",
+            description: "HealWell provides personalized elder care at home to ensure comfort, medical support, and companionship.",
+            icon: "fas fa-user-shield",
+            link: "elderly-care.html",
+            delay: 600
+        }
+    ];
+
+    const container = document.getElementById("services-list");
+
+    if (container) {
+        services.forEach(service => {
+            const col = document.createElement("div");
+            col.className = "col-lg-3 col-md-6";
+            col.setAttribute("data-aos", "fade-up");
+            col.setAttribute("data-aos-delay", service.delay.toString());
+            col.setAttribute("data-visible", "true");
+
+            col.innerHTML = `
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="${service.icon}"></i>
+          </div>
+          <a href="${service.link}" class="stretched-link">
+            <h3>${service.name}</h3>
+          </a>
+          <p>${service.description}</p>
+        </div>
+      `;
+
+            container.appendChild(col);
+        });
+    }
+}
 
 
 // 🔢 Dynamic contact data

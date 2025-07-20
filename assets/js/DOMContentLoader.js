@@ -19,11 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
                  if (loadedCount === includeElements.length) {
                      console.log("✅ All includes loading ...");
                      injectSiteName();
+                     injectServices();
                      applyVisibilityRules?.();
                      injectLogo?.();
                      injectHeaderContent?.();
                      injectFooterContent?.();
-                     highlightServicesOnSubpages?.();
+                     //highlightServicesOnSubpages?.();
                      console.log("✅ All includes loaded");
                  }
              })
