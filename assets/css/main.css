@@ -55,6 +55,7 @@
 /* Smooth scroll */
 :root {
     scroll-behavior: smooth;
+    --border-radius-full: 35px;
 }
 
 /*--------------------------------------------------------------
@@ -1732,7 +1733,58 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-    /* Add your styles here */
+
+
+
+.left-wthree-img .position-relative {
+    z-index: 1;
 }
 
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.radius-image-full {
+    border-radius: var(--border-radius-full);
+}
+/*--------------------------------------------------------------
+# Starter Section Section
+--------------------------------------------------------------*/
+
+.section-preheading {
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    color: #888;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: block;
+}
+.display-6 {
+    font-size: 2.2rem;
+    color: #222;
+    font-weight: 700;
+}
+.lead {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.custom-shape-bg {
+    background: #23b4b4; /* Match the teal color blob */
+    border-radius: 35% 65% 60% 40% / 55% 40% 60% 45%; /* Organic "blob" shape */
+    width: 320px;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-inside-blob {
+    max-width: 75%;
+    max-height: 75%;
+    object-fit: contain;
+    display: block;
+}
