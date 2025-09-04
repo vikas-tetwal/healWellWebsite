@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     injectLogo?.();
                     injectHeaderContent?.();
                     injectFooterContent?.();
+                    initMobileNavToggle();
                     //highlightServicesOnSubpages?.();
                     console.log("✅ All includes loaded");
                 }

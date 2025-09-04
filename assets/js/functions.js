@@ -308,3 +308,4 @@ function applyVisibilityRules() {
         item.style.display = index < 8 ? "block" : "none";
     });
 }
+
